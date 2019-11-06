@@ -1,0 +1,25 @@
+html,
+body {
+  font-size: 14px;
+  background-color:#6F42C1;
+  color:#ffffff;
+}
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+.container {
+    max-width: 960px;
+}
+.home-header {
+  margin-top:50%;
+    max-width: 700px;
+}
+#footer {
+  font-size:12pt;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+}
