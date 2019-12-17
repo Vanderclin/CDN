@@ -1,25 +1,84 @@
 html,
 body {
-  font-size: 14px;
-  background-color:#6F42C1;
-  color:#ffffff;
+    font-size: 14px;
+    background-color: #6F42C1;
+    color: #ffffff;
 }
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
     }
 }
+
 .container {
     max-width: 960px;
 }
+
 .home-header {
-  margin-top:20%;
+    margin-top: 20%;
     max-width: 700px;
 }
+
 #footer {
-  font-size:12pt;
-  position: fixed;
-  bottom: 0;
-  left:0;
-  width: 100%;
+    font-size: 12pt;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+
+.output {
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/* Cursor Styling */
+
+.cursor::after {
+    content: '';
+    display: inline-block;
+    margin-left: 3px;
+    background-color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+h1.cursor::after {
+    height: 24px;
+    width: 13px;
+}
+
+p.cursor::after {
+    height: 13px;
+    width: 6px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    49% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
