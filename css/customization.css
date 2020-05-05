@@ -1,3 +1,10 @@
+@font-face {
+font-family: 'Rosemary';
+font-style: normal;
+font-weight: normal;
+src: local('Rosemary'), url('../assets/fonts/rosemary.woff') format('woff');
+}
+
 html,
 body {
   font-size: 14px;
@@ -6,6 +13,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-family:Rosemary;
   color:#ffffff;
 }
 
