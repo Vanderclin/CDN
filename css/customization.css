@@ -1,8 +1,13 @@
 html,
 body {
-    font-size: 14px;
-    background-color: #6F42C1;
-    color: #ffffff;
+  font-size: 14px;
+  height:100%;
+  background: url("../assets/images/background_unfocused.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:#ffffff;
 }
 
 @media (min-width: 768px) {
@@ -18,18 +23,6 @@ body {
 .home-header {
     margin-top: 20%;
     max-width: 700px;
-}
-
-#footer {
-    font-size: 12pt;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-.hide {
-    display: none;
 }
 
 
