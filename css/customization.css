@@ -23,15 +23,6 @@ body {
     }
 }
 
-body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top:20%;
-  margin-bottom: 20%;
-}
-
 .container {
     max-width: 960px;
 }
@@ -47,5 +38,10 @@ body {
 
 .jumbotron h1 {
   text-align:center;
-  
+}
+.small-light {
+  color: #fff;
+  margin-bottom:-16px;
+  margin-top: 14px;
+  text-align: center;
 }
