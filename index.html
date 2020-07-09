@@ -15,15 +15,27 @@
 	<link rel="icon" href="assets/favicon/favicon.ico">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/customization.css" rel="stylesheet">
-
-
   </head>
 
   <body>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="#">
+		<img class="img-fluid img-thumbnail rounded-circle" src="../assets/favicon/favicon.ico" width="30" height="30" alt="" loading="lazy">
+		<b>CDN</b>
+	  </a>
+	  <script src="https://apis.google.com/js/platform.js"></script>
+	  <div class="g-ytsubscribe" data-channelid="UCzpx5uSZQ4vRV7WvFqa_ezw" data-layout="default" data-count="default"></div>
+	</nav>
+	
+	<div class="home-header px-4 py-4 mt-5 pt-md-5 pb-md-4 mx-auto text-center">
+	  <p class="text-center lead" id="id_message"></p>
+	</div>
+	
     <div class="container">
-	  <p class="text-center lead" id="id_title"></p>
-	  <div class="jumbotron mt-5">
-		<h1 class="display-4">Vivo Connect</h1>
+	  
+	  <div class="jumbotron mt-3">
+		<h1 id="id_title" class="display-4"></h1>
 		<ul class="list-unstyled">
 		  <li id="id_created"></li>
 		  <li id="id_expires"></li>
@@ -34,12 +46,13 @@
 		  <button class="btn btn-block btn-outline-light" type="submit">Baixar</button>
 		</form>
 	  </div>
-    </div>
-	
-	
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	</div>
+
+
+
+    <script src="js/vendor/jquery.slim.min.js"></script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script src="js/customization.js"></script>
   </body>
 
