@@ -31,6 +31,53 @@ body {
     max-width: 960px;
 }
 
+.form {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form {
+	width: 100%;
+	max-width: 330px;
+	padding: 15px;
+	margin: auto;
+}
+
+.form img {
+	display: flex;
+	margin: 0 auto;
+}
+
+.form .form-control {
+	position: relative;
+	box-sizing: border-box;
+	height: auto;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form .form-control:focus {
+	z-index: 2;
+}
+
+.form input[type="email"] {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.form input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.hide {
+  display: none;
+}
+
 .home-header {
     max-width: 700px;
 }
@@ -42,6 +89,29 @@ body {
 .jumbotron h1 {
   text-align:center;
 }
+
+.ml12 {
+  color: #6c757d !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.modal-content {
+  border-radius:9px;
+}
+
+.modal-dark {
+  width:100%;
+  background-color: #35363A;
+  border: solid 2px #3C4043;
+  border-radius:8px;
+}
+
 .small-light {
   color: #fff;
   margin-bottom:-16px;

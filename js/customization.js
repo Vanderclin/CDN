@@ -3,3 +3,7 @@ document.getElementById("id_message").innerHTML = "O arquivo de teste é atualiz
 document.getElementById("id_created").innerHTML = "Criado: 08/07/2020";
 document.getElementById("id_expires").innerHTML = "Expira: 13/07/2020";
 document.getElementById("id_server").innerHTML = "Servidor: Canadá";
+
+function openModalSignIn() {
+$("#modal_sign_in").modal("show");
+}
