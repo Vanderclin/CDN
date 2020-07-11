@@ -19,7 +19,8 @@ document.getElementById("btn-sign-out").style.display = "none";
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 	  $("#modal_sign_in").modal("hide");
-	  document.getElementById("floatingActionButton").style.display ="block";
+	  document.getElementById("floatingActionButton").style.display = "block";
+	
 	  // Buttons Navbar
 	  document.getElementById("btn-sign-in").style.display = "none";
 	  document.getElementById("btn-sign-out").style.display = "block";
