@@ -2,7 +2,9 @@
 <html lang="pt">
 
   <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
+	<meta http-equiv="refresh" content="60">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Vanderclin Rocha">
     <meta name="description" content="Rede de fornecimento, entrega e distribuição de conteúdo">
@@ -15,44 +17,55 @@
 	<link rel="icon" href="assets/favicon/favicon.ico">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/customization.css" rel="stylesheet">
+	<link href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   </head>
 
   <body>
-
-	<div class="sticky-top">
-	  <div class="" id="navbarToggleUp">
-		<div class="bg-dark text-center p-3">
-		  <small class="ml12">Olá, seja bem vindo!</small>
-		</div>
-	  </div>
-	  <nav class="navbar navbar-dark bg-dark">
-		<a class="navbar-brand mr-auto" href="#">
-		  <img src="assets/favicon/favicon.ico" width="30" height="30" class="d-inline-block align-top img-fluid img-thumbnail rounded" alt="" loading="lazy"><b class="alignment"> Minilab's | CDN</b>
-		</a>
-		<button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-in" onclick="formSignIn()">Entrar</button>
-		<button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-out" onclick="signOut()">Sair</button>
-	  </nav>
-	</div>
-
-	<div class="home-header px-4 py-4 mt-5 pt-md-5 pb-md-4 mx-auto text-center">
-	  <p class="text-center lead" id="id_message"></p>
-	</div>
+	
+	<nav class="navbar navbar-dark bg-dark">
+	  <a class="navbar-brand mr-auto" href="#">
+		<img src="assets/favicon/favicon.ico" width="30" height="30" class="d-inline-block align-top img-fluid img-thumbnail rounded" alt="" loading="lazy"><b class="alignment ml12"> Minilab's | CDN</b>
+	  </a>
+	  <button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-in" onclick="formSignIn ( )">Entrar</button>
+	  <button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-out" onclick="signOut ( )">Sair</button>
+	</nav>
 
     <div class="container">
 
-	  <div class="jumbotron mt-3">
-		<h1 id="id_title" class="display-4"></h1>
-		<ul class="list-unstyled">
-		  <li id="id_created"></li>
-		  <li id="id_expires"></li>
-		  <li id="id_server"></li>
-		</ul>
-		<hr class="my-1">
-		<form method="get" action="http://bit.ly/settings_httpinjector">
-		  <button class="btn btn-block btn-outline-light" type="submit" >Baixar</button>
-		</form>
+	  <div class="row justify-content-center mt-3">
+
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title text-center">Vivo Connect</h5>
+			<ul class="list-unstyled my-auto">
+			  <li>Criado: 08/07/2020</li>
+			  <li>Expira: 13/07/2020</li>
+			  <li>Server: Canadá </li>
+			</ul>
+		  </div>
+		  <div class="card-footer">
+			<form method="get" action="http://bit.ly/settings_httpinjector">
+			  <button class="btn btn-sm btn-block btn-outline-light" type="submit">Baixar</button>
+			</form>
+		  </div>
+		</div>
+
 	  </div>
+	  
+	  <div class="fab hide"  ontouchstart="" id="floatingActionButton">
+		<button class="main" >
+		</button>
+		<ul>
+		  <li>
+			<label for="opcao1">Poster</label>
+			<button onclick="modalChat()" id="opcao1"><i class="fas fa-plus alignment"></i></button>
+		  </li>
+		</ul>
+	  </div>
+	  
+	  
+	  
 	</div>
 
 	<div class="modal fade" id="modal_sign_in" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -65,15 +78,13 @@
 			  <input type="password" id="password" class="form-control" placeholder="Senha" required>
 			  <button id="quickstart-sign-in" class="btn btn-md mx-auto btn-block btn-outline-light" onclick="signIn ( )">Entrar</button>
 			  <div class="d-flex">
-				<span class="mx-auto mt-3 mb-0 text-light text-center">&copy; Minilab's 2019-2020</span>
+				<span class="mx-auto mt-3 mb-0 text-light text-center">&copy; Minilab's | CDN 2019-2020</span>
 			  </div>
 			</form>
 		  </div>
 		</div>
 	  </div>
 	</div>
-
-
 
     <script src="js/vendor/jquery.slim.min.js"></script>
     <script src="js/vendor/popper.min.js"></script>

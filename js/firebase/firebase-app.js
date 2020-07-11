@@ -19,13 +19,13 @@ document.getElementById("btn-sign-out").style.display = "none";
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 	  $("#modal_sign_in").modal("hide");
-	  document.getElementById("navbarToggleUp").classList.add('collapse-in');
+	  document.getElementById("floatingActionButton").style.display ="block";
 	  // Buttons Navbar
 	  document.getElementById("btn-sign-in").style.display = "none";
 	  document.getElementById("btn-sign-out").style.display = "block";
 	  
 	} else {
-	  document.getElementById("navbarToggleUp").classList.remove('collapse');
+	  document.getElementById("floatingActionButton").style.display ="none";
 	  // Buttons Navbar
 	  document.getElementById("btn-sign-in").style.display = "block";
 	  document.getElementById("btn-sign-out").style.display = "none";
