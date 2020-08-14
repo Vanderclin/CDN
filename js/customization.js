@@ -2,6 +2,12 @@ function openModalSignIn() {
 	$("#modal_sign_in").modal("show");
 }
 
+$(function () {
+    $('.btn-group-fab').on('click', '.btn', function () {
+        $('.btn-group-fab').toggleClass('active');
+    });
+});
+
 function check() {
 firebase.database().ref('counter').on('value', function(snapshot) {
 	if (snapshot.val() < 50) {
@@ -12,4 +18,9 @@ firebase.database().ref('counter').on('value', function(snapshot) {
 		$('.collapse').collapse();
 	}
 });
+}
+
+function setValue() {
+	firebase.database().ref('counter').set("0");
+	check();
 }
