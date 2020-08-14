@@ -1,5 +1,9 @@
 function openModalSignIn() {
-	$("#modal_sign_in").modal("show");
+    $("#modal_sign_in").modal("show");
+}
+
+function openModalUpload() {
+    $("#modal_file_upload").modal("show");
 }
 
 $(function () {
@@ -9,18 +13,42 @@ $(function () {
 });
 
 function check() {
-firebase.database().ref('counter').on('value', function(snapshot) {
-	if (snapshot.val() < 50) {
-		document.getElementById("button-download").disabled = false;
-	}
-	else {
-		document.getElementById("button-download").disabled = true;
-		$('.collapse').collapse();
-	}
-});
+    firebase.database().ref('counter').on('value', function (snapshot) {
+        if (snapshot.val() < 50) {
+            document.getElementById("button-download").disabled = false;
+        } else {
+            document.getElementById("button-download").disabled = true;
+            $('.collapse').collapse();
+        }
+    });
 }
 
 function setValue() {
-	firebase.database().ref('counter').set("0");
-	check();
+    firebase.database().ref('counter').set("0");
+    check();
 }
+
+
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml12');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({
+        loop: true
+    })
+    .add({
+        targets: '.ml12 .letter',
+        translateX: [40, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 1200,
+        delay: (el, i) => 2000 + 30 * i
+    }).add({
+        targets: '.ml12 .letter',
+        translateX: [0, -30],
+        opacity: [1, 0],
+        easing: "easeInExpo",
+        duration: 1100,
+        delay: (el, i) => 2000 + 30 * i
+    });
