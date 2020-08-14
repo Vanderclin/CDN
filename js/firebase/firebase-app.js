@@ -12,7 +12,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-document.getElementById("btn-file-upload").style.display = "none";
 document.getElementById("btn-sign-in").style.display = "none";
 document.getElementById("btn-sign-out").style.display = "none";
 
@@ -23,14 +22,12 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("floatingActionButton").style.display = "block";
 
         // Buttons Navbar
-        document.getElementById("btn-file-upload").style.display = "block";
         document.getElementById("btn-sign-in").style.display = "none";
         document.getElementById("btn-sign-out").style.display = "block";
 
     } else {
         document.getElementById("floatingActionButton").style.display = "none";
         // Buttons Navbar
-        document.getElementById("btn-file-upload").style.display = "none";
         document.getElementById("btn-sign-in").style.display = "block";
         document.getElementById("btn-sign-out").style.display = "none";
 
