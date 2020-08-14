@@ -1,16 +1,16 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyA0EUZyka-YGPhipgYChM5YKih1Xot1Atw",
-    authDomain: "minilabs-cdn.firebaseapp.com",
-    databaseURL: "https://minilabs-cdn.firebaseio.com",
-    projectId: "minilabs-cdn",
-    storageBucket: "minilabs-cdn.appspot.com",
-    messagingSenderId: "1082822216036",
-    appId: "1:1082822216036:web:ce7243c8496d24fc41d271",
-    measurementId: "G-KPQ6YMFZ6Y"
-	};
-	// Initialize Firebase
-	firebase.initializeApp(firebaseConfig);
-	firebase.analytics();
+    apiKey: "AIzaSyCgbqJQLrzuVQTIUES7zYi_J9auaWjra1M",
+    authDomain: "cdn-minilabs.firebaseapp.com",
+    databaseURL: "https://cdn-minilabs.firebaseio.com",
+    projectId: "cdn-minilabs",
+    storageBucket: "cdn-minilabs.appspot.com",
+    messagingSenderId: "275157132530",
+    appId: "1:275157132530:web:1fa50ce7d9b32824129c6b",
+    measurementId: "G-VN5J44D1BY"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 	
 document.getElementById("btn-sign-in").style.display = "none";
 document.getElementById("btn-sign-out").style.display = "none";
@@ -89,6 +89,18 @@ function signOut() {
 		// An error happened.
 	});
 }
+
+var button = document.getElementById("button-download"),
+	count = 0;
+	
+button.onclick = function() {
+    firebase.database().ref('counter').set(firebase.database.ServerValue.increment(1));
+};
+
+firebase.database().ref('counter').on('value', function(snapshot) {
+    var badge = document.getElementById("badge-value");
+    badge.innerHTML = "Download: " + snapshot.val();
+});
 
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml12');

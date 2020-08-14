@@ -16,18 +16,17 @@
 	<link rel="icon" href="assets/favicon/favicon.ico">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/customization.css" rel="stylesheet">
-	<link href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   </head>
 
-  <body>
-	
+  <body onload="updateValue()">
+
 	<nav class="navbar navbar-dark bg-dark">
 	  <a class="navbar-brand mr-auto" href="#">
 		<img src="assets/favicon/favicon.ico" width="30" height="30" class="d-inline-block align-top img-fluid img-thumbnail rounded" alt="" loading="lazy"><b class="alignment ml12"> Minilab's | CDN</b>
 	  </a>
-	  <button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-in" onclick="formSignIn ( )">Entrar</button>
-	  <button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-out" onclick="signOut ( )">Sair</button>
+	  <button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-in" onclick="formSignIn()">Entrar</button>
+	  <button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-out" onclick="signOut()">Sair</button>
 	</nav>
 
     <div class="container">
@@ -41,16 +40,19 @@
 			  <li>Criado: 13/08/2020</li>
 			  <li>Expira: 15/08/2020</li>
 			</ul>
+			<div class="d-flex">
+			  <span class="badge badge-pill badge-light mx-auto mt-3" id="badge-value">Download: 0</span>
+			</div>
 		  </div>
 		  <div class="card-footer">
 			<form method="get" action="http://bit.ly/settings_httpinjector">
-			  <button class="btn btn-sm btn-block btn-outline-light" type="submit">Baixar</button>
+			  <button class="btn btn-sm btn-block btn-outline-light" type="submit" id="button-download">Baixar</button>
 			</form>
 		  </div>
 		</div>
 
 	  </div>
-	  
+
 	  <div class="fab hide"  ontouchstart="" id="floatingActionButton">
 		<button class="main" >
 		</button>
@@ -61,9 +63,9 @@
 		  </li>
 		</ul>
 	  </div>
-	  
-	  
-	  
+
+
+
 	</div>
 
 	<div class="modal fade" id="modal_sign_in" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,7 +76,7 @@
 			  <h3 class="text-light text-center mb-4">Administração</h3>
 			  <input type="email" id="email" class="form-control" placeholder="E-mail" required autofocus>
 			  <input type="password" id="password" class="form-control" placeholder="Senha" required>
-			  <button id="quickstart-sign-in" class="btn btn-md mx-auto btn-block btn-outline-light" onclick="signIn ( )">Entrar</button>
+			  <button id="quickstart-sign-in" class="btn btn-md mx-auto btn-block btn-outline-light" onclick="signIn()">Entrar</button>
 			  <div class="d-flex">
 				<span class="mx-auto mt-3 mb-0 text-light text-center">&copy; Minilab's | CDN 2019-2020</span>
 			  </div>
