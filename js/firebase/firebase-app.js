@@ -103,3 +103,28 @@ firebase.database().ref('counter').on('value', function (snapshot) {
 });
 
 
+
+$(function () {
+    $('.btn-group-fab').on('click', '.btn', function () {
+        $('.btn-group-fab').toggleClass('active');
+    });
+});
+
+function check() {
+	var codec = atob("NTA=");
+    firebase.database().ref('counter').on('value', function (snapshot) {
+        if (snapshot.val() < codec) {
+            document.getElementById("button-download").disabled = false;
+        } else {
+            document.getElementById("button-download").disabled = true;
+            $('.collapse').collapse();
+        }
+    });
+}
+
+function setValue() {
+	// Define o valor para 0
+    firebase.database().ref('counter').set("2");
+    check();
+}
+
