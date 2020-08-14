@@ -19,7 +19,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   </head>
 
-  <body onload="updateValue()">
+  <body onload="check()">
 
 	<nav class="navbar navbar-dark bg-dark">
 	  <a class="navbar-brand mr-auto" href="#">
@@ -39,15 +39,21 @@
 			<ul class="list-unstyled my-auto">
 			  <li>Criado: 13/08/2020</li>
 			  <li>Expira: 15/08/2020</li>
+			  <li id="date"></li>
 			</ul>
-			<div class="d-flex">
-			  <span class="badge badge-pill badge-light mx-auto mt-3" id="badge-value">Download: 0</span>
-			</div>
 		  </div>
 		  <div class="card-footer">
 			<form method="get" action="http://bit.ly/settings_httpinjector">
-			  <button class="btn btn-sm btn-block btn-outline-light" type="submit" id="button-download">Baixar</button>
+			  <button class="btn btn-sm btn-block btn-outline-light" type="submit" disabled id="button-download">
+				Baixar 
+				<span class="badge badge-light" id="badge-value">0</span>
+			  </button>
 			</form>
+			<div class="mt-2">
+			  <div class="collapse mt-1 text-center" id="collapseExample">
+				<h6 class="small p-2 mb-0">Limite de 50 downloads atingidos</h6>
+			  </div>
+			</div>
 		  </div>
 		</div>
 

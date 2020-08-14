@@ -95,11 +95,12 @@ var button = document.getElementById("button-download"),
 	
 button.onclick = function() {
     firebase.database().ref('counter').set(firebase.database.ServerValue.increment(1));
+	check();
 };
 
 firebase.database().ref('counter').on('value', function(snapshot) {
     var badge = document.getElementById("badge-value");
-    badge.innerHTML = "Download: " + snapshot.val();
+    badge.innerHTML = snapshot.val();
 });
 
 // Wrap every letter in a span
