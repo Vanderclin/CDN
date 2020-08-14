@@ -106,38 +106,3 @@ firebase.database().ref('counter').on('value', function (snapshot) {
 });
 
 
-
-
-
-
-
-
-
-function startUpload() {
-
-    var ehi_file_name = document.getElementById("ehi_file_name").value;
-    var ehi_date_create = document.getElementById("ehi_date_create").value;
-    var ehi_date_expired = document.getElementById("ehi_date_expired").value;
-    var ehi_day_quantity = document.getElementById("ehi_day_quantity").value;
-    var ehi_file_upload = document.getElementById("ehi_file_upload").files[0];
-
-    var uid = firebase.auth().currentUser.uid;
-
-    var ref = firebase.storage().ref("resources");
-    var uploadTask = ref.child(Date.now() + "/" + ehi_file_upload.name + "/").put(ehi_file_upload);
-
-
-    uploadTask.on("state_changed", null, null, function () {
-        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-            console.log("File available", downloadURL);
-            firebase.database().ref('identification/' + Date.now()).set({
-                file_name: ehi_file_name,
-                file_create: ehi_date_create,
-                file_expired: ehi_date_expired,
-                file_days: ehi_day_quantity,
-                file_url: downloadURL
-
-            });
-        });
-    });
-};
