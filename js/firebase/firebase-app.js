@@ -126,41 +126,18 @@ function startUpload() {
     var ref = firebase.storage().ref("resources");
     var uploadTask = ref.child(Date.now() + "/" + ehi_file_upload.name + "/").put(ehi_file_upload);
 
-    uploadTask.on('state_changed', function (snapshot) {
-        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
-        switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED:
-                console.log('Upload is paused');
-                break;
-            case firebase.storage.TaskState.RUNNING:
-                console.log('Upload is running');
-                break;
-        }
-    }, function (error) {
-        console.log(error);
-    }, function () {
 
+    uploadTask.on("state_changed", null, null, function () {
         uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-            var user = firebase.auth().currentUser;
-            var data = {
+            console.log("File available", downloadURL);
+            firebase.database().ref('identification/' + Date.now()).set({
                 file_name: ehi_file_name,
                 file_create: ehi_date_create,
                 file_expired: ehi_date_expired,
                 file_days: ehi_day_quantity,
                 file_url: downloadURL
-            };
-            firebase.database().ref().child("identification/" + uid).set(data)
-                .then(function () {
-                    //setTimeout(function () {
-                      //  window.location.reload();
-                    //}, 4000);
 
-                }).catch(function (error) {
-                    alert("Ocorreu um erro durante a atualização");
-                });
-
-
+            });
         });
     });
 };
