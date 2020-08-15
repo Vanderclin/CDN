@@ -124,7 +124,7 @@ function check() {
 
 function setValue() {
 	// Define o valor para 0
-    firebase.database().ref('counter').set("2");
+    firebase.database().ref('counter').set("0");
     check();
 }
 
