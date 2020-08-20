@@ -179,7 +179,7 @@ body {
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 @media (min-width: 768px) {
