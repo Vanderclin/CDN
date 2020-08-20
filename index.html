@@ -16,7 +16,12 @@
     <link rel="icon" href="assets/favicon/favicon.ico">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/customization.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </head>
 
 <body onload="check()">
@@ -32,9 +37,20 @@
     <div class="container">
 
         <div class="home-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-            <div class="alert alert-danger" role="alert">
-                <h4 class="alert-heading">Aviso</h4>
-                <p class="lead">Os arquivos de configurações disponíveis aqui podem não funcionar em todas as regiões, novas atualizações serão postadas com frequência.</p>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/1078161.jpg" class="img-fluid rounded" alt="Responsive image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/1078301.jpg" class="img-fluid rounded" alt="Responsive image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/1078158.jpg" class="img-fluid rounded" alt="Responsive image">
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination mx-auto"></div>
             </div>
         </div>
 
@@ -46,7 +62,7 @@
                     <ul class="list-unstyled my-auto">
                         <li>Criado: 15/08/2020</li>
                         <li>Expira: 18/08/2020</li>
-						<li>Limite: 50 Downloads</li>
+                        <li>Limite: 50 Downloads</li>
                     </ul>
                 </div>
                 <div class="card-footer">
@@ -105,6 +121,4 @@
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
     <script src="js/firebase/firebase-app.js"></script>
 
-</body>
-
-</html>
+</body></html>
