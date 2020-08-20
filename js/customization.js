@@ -12,10 +12,7 @@ var swiper = new Swiper('.swiper-container', {
 });
 
 
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
+$("#menu-toggle").click(function (e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
