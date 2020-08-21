@@ -175,7 +175,8 @@ body {
     -moz-background-clip: padding;
     -webkit-background-clip: padding;
     background-clip: padding-box;
-    border-right: 5px solid rgba(0, 0, 0, 0.2);
+	border-top: 5px solid rgba(0, 0, ,0, 0.5);
+    border-right: 5px solid rgba(0, 0, 0, 0.5);
     z-index: 2;
 
 }
@@ -245,7 +246,7 @@ label.icon {
 .icon .menu,
 .icon .menu::before,
 .icon .menu::after {
-    background: #9FB1BD;
+    background: #FFFFFF;
     content: '';
     display: block;
     height: 2px;
@@ -257,12 +258,12 @@ label.icon {
 .icon:hover .menu,
 .icon:hover .menu::before,
 .icon:hover .menu::after {
-    background: #47B74B;
+    background: #FFFFFF;
 }
 
 .icon .menu {
     left: 18px;
-    top: 27px;
+    top: 25px;
 }
 
 .icon .menu::before {
