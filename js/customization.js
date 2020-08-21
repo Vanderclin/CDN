@@ -14,7 +14,7 @@ var swiper = new Swiper('.swiper-container', {
 
 $(document).ready(function () {
     console.log("document is ready");
-    $('[data-toggle="offcanvas"], #navToggle').on('click', function () {
+    $('[data-toggle="offcanvas"], #menu').on('click', function () {
         $('.offcanvas-collapse').toggleClass('open')
     })
 });

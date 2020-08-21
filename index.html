@@ -27,8 +27,12 @@
 <body onload="check()">
 
     <nav class="navbar navbar-dark bg-dark">
+        <input type="checkbox" id="menu">
+        <label for="menu" class="icon">
+            <div class="menu"></div>
+        </label>
         <a class="navbar-brand mr-auto" href="#">
-            <img src="assets/favicon/favicon.ico" width="30" height="30" class="d-inline-block align-top img-fluid img-thumbnail rounded" alt="" loading="lazy" id="navToggle"><b class="alignment ml12"> Minilab's | CDN</b>
+            <img src="assets/favicon/favicon.ico" width="30" height="30" class="d-inline-block align-top img-fluid img-thumbnail rounded" alt="" loading="lazy"><b class="alignment ml12"> Minilab's | CDN</b>
         </a>
         <button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-in" onclick="formSignIn()">Entrar</button>
         <button class="btn btn-outline-light mx-1 hide" type="button" id="btn-sign-out" onclick="signOut()">Sair</button>
@@ -147,4 +151,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
     <script src="js/firebase/firebase-app.js"></script>
 
-</body></html>
+</body>
+
+</html>
