@@ -147,7 +147,7 @@ body {
 
 
 .swiper-container {
-    height: 300px;
+    height: auto;
     justify-content: center;
     width: 100%;
 }
