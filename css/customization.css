@@ -152,6 +152,14 @@ body {
     width: 100%;
 }
 
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+
+}
+
 .offcanvas-collapse {
     position: fixed;
     top: 56px;
@@ -175,7 +183,7 @@ body {
     -moz-background-clip: padding;
     -webkit-background-clip: padding;
     background-clip: padding-box;
-	border-top: 5px solid rgba(0, 0, ,0, 0.5);
+    border-top: 5px solid rgba(0, 0, , 0, 0.5);
     border-right: 5px solid rgba(0, 0, 0, 0.5);
     z-index: 2;
 
