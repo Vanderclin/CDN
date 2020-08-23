@@ -12,20 +12,41 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+document.getElementById("profile_user").style.display = "none";
 document.getElementById("btn-sign-in").style.display = "none";
 document.getElementById("btn-sign-out").style.display = "none";
 
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
+		var displayName = user.displayName;
+		var email = user.email;
+		var emailVerified = user.emailVerified;
+		var photoURL = user.photoURL;
+		var isAnonymous = user.isAnonymous;
+		var uid = user.uid;
+		var providerData = user.providerData;
+		
         $("#modal_sign_in").modal("hide");
+		document.getElementById("profile_user").style.display = "block";
         document.getElementById("floatingActionButton").style.display = "block";
-
         // Buttons Navbar
         document.getElementById("btn-sign-in").style.display = "none";
         document.getElementById("btn-sign-out").style.display = "block";
 
-    } else {
+    }
+	if (displayName === null) {
+		document.getElementById("user_name").innerHTML = "Sem nome";
+		document.getElementById("user_email").innerHTML = email;
+		$("#modal_update_user").modal({
+			backdrop: 'static',
+			keyboard: false
+		});
+	} else if (displayName) {
+		document.getElementById("user_name").innerHTML = displayName;
+		document.getElementById("user_email").innerHTML = email;
+	} else {
+		document.getElementById("profile_user").style.display = "none";
         document.getElementById("floatingActionButton").style.display = "none";
         // Buttons Navbar
         document.getElementById("btn-sign-in").style.display = "block";
