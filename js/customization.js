@@ -31,3 +31,11 @@ $(document).ready(function () {
 		}
 	});
 });
+
+$( "#input_user_name" ).on('input', function() {
+    if ($(this).val().length>=16) {
+		document.getElementById("input_user_name").disabled = true;
+		document.getElementById("buttonUpdate").disabled = false;
+		$('.collapse').collapse();
+    }
+});
