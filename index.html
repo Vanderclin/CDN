@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,7 @@
         </a>
         <div class="row ml-auto mr-1">
             <h6 class="alignment mx-1 my-auto">Online</h6>
-            <span class="badge badge-light">0</span>
+            <span id="visitor" class="badge badge-light">0</span>
         </div>
 
         <div class="navbar-collapse offcanvas-collapse">
@@ -211,5 +211,10 @@
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
     <script src="js/firebase/firebase-app.js"></script>
+    <script src="js/javascript.js"></script>
+    <script>
+        var vis = document.getElementById("visitor");
+        vis.innerHTML = visitor.session.visitCount;
+    </script>
 
 </body></html>
