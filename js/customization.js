@@ -6,7 +6,7 @@ var swiper = new Swiper('.swiper-container', {
     centeredSlides: true,
     loop: true,
     autoplay: {
-        delay: 8000,
+        delay: 15000,
         disableOnInteraction: false,
     },
 });
