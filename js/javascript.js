@@ -1,13 +1,10 @@
 function counter_fn() {
     //var counter = document.getElementById("visitor");
-
-
     var count = 0;
     count = parseInt(counter.innerHTML);
     count = count + 1;
     counter.innerHTML = count;
-    firebase.database().ref('visitor').set(firebase.database.ServerValue.increment(1));
-    check();
+    firebase.database().ref('visitor').set(count);
 
 }
 window.onload = counterV;
