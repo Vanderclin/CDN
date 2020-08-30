@@ -49,16 +49,16 @@
 }
 
 @font-face {
-    font-family: 'Rosemary';
+    font-family: 'Cuprum-Regular';
     font-style: normal;
     font-weight: normal;
-    src: local('Rosemary'), url('../assets/fonts/rosemary.woff') format('woff');
+    src: local('Cuprum-Regular'), url('../assets/fonts/Cuprum-Regular.ttf') format('truetype');
 }
 
 body {
     font-size: 14px;
     background-color: #303030;
-    font-family: Rosemary;
+    font-family: Cuprum-Regular;
     color: #ffffff;
 }
 

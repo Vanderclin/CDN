@@ -12,7 +12,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-document.getElementById("page-splash").style.display = "block";
+//document.getElementById("page-splash").style.display = "block";
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -105,17 +105,15 @@ firebase.database().ref('current_points').set(firebase.database.ServerValue.incr
     check();
 };
 */
-firebase.database().ref('current_points').on('value', function (snapshot) {
-    if (snapshot.val() > 0) {
-        var cp = document.getElementById("current_points");
-        cp.innerHTML = snapshot.val();
-    } else {
-        var cp = document.getElementById("current_points");
-        cp.innerHTML = '0';
-    }
 
-    var snapValue = snapshot.val();
 
+firebase.database().ref('user').on('value', function (snapshot) {
+
+    var cp = document.getElementById("current_points").innerHTML = snapshot.child('current_points').val();
+    document.getElementById("current_device").innerHTML = snapshot.child('current_device').val();
+    document.getElementById("current_guests").innerHTML = snapshot.child('current_guests').val();
+    
+    
     function mascara(v) {
         v = v.replace(/\D/g, "");
         v = new String(Number(v));
@@ -134,9 +132,11 @@ firebase.database().ref('current_points').on('value', function (snapshot) {
         }
         return v;
     }
-    document.getElementById("current_balance").innerHTML = (mascara('"' + snapValue + '"'));
+    document.getElementById("current_balance").innerHTML = "R$ " + (mascara('' + cp + ''));
 });
 
+
+/*
 function check() {
 
     var codec = "10";
@@ -150,7 +150,7 @@ function check() {
         }
     });
 }
-
+*/
 function setValue() {
     // Define o valor para 0
     firebase.database().ref('current_points').set("0");
