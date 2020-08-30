@@ -25,9 +25,9 @@ body {
 
 .card {
     background-color: #343a40;
-    height: auto;
+    height: 100%;
     margin: 14px;
-    width: 170px;
+    width: 100%;
 }
 
 .container {
@@ -65,15 +65,14 @@ body {
     height: 60px;
     right: 50%;
     margin-right: -25px;
-    z-index: 9;
+    z-index: 0;
     background: #35363A;
 }
 
-.form {
+.parent {
+    display: flex;
+    height: 100%;
     width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
 }
 
 .form {
@@ -355,4 +354,20 @@ label.icon {
     [class*="col-"] {
         width: 100%;
     }
+}
+
+
+
+
+.page-splash {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    padding: 10px 10px 10px 10px;
+    width: 100%;
+    height: 100%;
+    background-color: #303030;
+    z-index: 10000;
+    position: fixed;
+    color: white;
 }

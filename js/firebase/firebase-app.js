@@ -12,10 +12,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-document.getElementById("profile_user").style.display = "none";
-document.getElementById("btn-sign-in").style.display = "none";
-document.getElementById("btn-sign-out").style.display = "none";
-
+document.getElementById("page-splash").style.display = "block";
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -27,13 +24,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         var uid = user.uid;
         var providerData = user.providerData;
 
-        $("#modal_sign_in").modal("hide");
-        document.getElementById("profile_user").style.display = "block";
-        document.getElementById("floatingActionButton").style.display = "block";
-        // Buttons Navbar
-        document.getElementById("btn-sign-in").style.display = "none";
-        document.getElementById("btn-sign-out").style.display = "block";
-
+        document.getElementById("page-splash").style.display = "none";
     }
     if (displayName === null) {
         document.getElementById("user_name").innerHTML = "Sem nome";
@@ -46,68 +37,55 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("user_name").innerHTML = displayName;
         document.getElementById("user_email").innerHTML = email;
     } else {
-        document.getElementById("profile_user").style.display = "none";
-        document.getElementById("floatingActionButton").style.display = "none";
-        // Buttons Navbar
-        document.getElementById("btn-sign-in").style.display = "block";
-        document.getElementById("btn-sign-out").style.display = "none";
+
+        // Página Inicial
+        document.getElementById("page-splash").style.display = "block";
 
     }
 });
 
-function formSignIn() {
-    $("#modal_sign_in").modal("show");
-}
-
 function signIn() {
-
-    if (firebase.auth().currentUser) {
-        // [START signout]
-        firebase.auth().signOut();
-        // [END signout]
-    } else {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        if (email.length < 4) {
-            alert('Por favor insira um endereço de e-mail.');
-            return;
-        }
-        if (password.length < 4) {
-            alert('Por favor insira uma senha.');
-            return;
-        }
-
-        // Sign in with email and pass.
-        // [START authwithemail]
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // [START_EXCLUDE]
-            if (errorCode === 'auth/wrong-password') {
-                alert('Senha incorreta.');
-            } else if (errorCode === 'auth/user-not-found') {
-                alert('Usuário não registrado.');
-            } else {
-                alert(errorMessage);
-            }
-            console.log(error);
-            document.getElementById('quickstart-sign-in').disabled = false;
-            // [END_EXCLUDE]
-        });
-        // [END authwithemail]
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    if (email.length < 4) {
+        alert('Por favor insira um endereço de e-mail.');
+        return;
     }
+    if (password.length < 4) {
+        alert('Por favor insira uma senha.');
+        return;
+    }
+
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode === 'auth/wrong-password') {
+            alert('Senha incorreta.');
+        } else if (errorCode === 'auth/user-not-found') {
+            alert('Usuário não registrado.');
+        } else {
+            alert(errorMessage);
+        }
+        console.log(error);
+        document.getElementById('quickstart-sign-in').disabled = false;
+        // [END_EXCLUDE]
+    });
+    // [END authwithemail]
     document.getElementById('quickstart-sign-in').disabled = true;
 
 }
 
 function signOut() {
-    firebase.auth().signOut().then(function () {
-        // Sign-out successful.
-        window.location.reload();
-    }).catch(function (error) {
-        // An error happened.
-    });
+    setTimeout(function () {
+        firebase.auth().signOut().then(function () {
+            // Sign-out successful.
+            window.location.reload();
+        }).catch(function (error) {
+            // An error happened.
+        });
+    }, 1000);
 }
 
 function updateProfile() {
@@ -122,42 +100,60 @@ function updateProfile() {
         // An error happened.
     });
 }
-
-var button = document.getElementById("button-download"),
-    count = 0;
-
-button.onclick = function () {
-    firebase.database().ref('counter').set(firebase.database.ServerValue.increment(1));
+/*
+firebase.database().ref('current_points').set(firebase.database.ServerValue.increment(1));
     check();
 };
+*/
+firebase.database().ref('current_points').on('value', function (snapshot) {
+    if (snapshot.val() > 0) {
+        var cp = document.getElementById("current_points");
+        cp.innerHTML = snapshot.val();
+    } else {
+        var cp = document.getElementById("current_points");
+        cp.innerHTML = '0';
+    }
 
-firebase.database().ref('counter').on('value', function (snapshot) {
-    var badge = document.getElementById("badge-value");
-    badge.innerHTML = snapshot.val();
-});
+    var snapValue = snapshot.val();
 
-
-$(function () {
-    $('.btn-group-fab').on('click', '.btn', function () {
-        $('.btn-group-fab').toggleClass('active');
-    });
+    function mascara(v) {
+        v = v.replace(/\D/g, "");
+        v = new String(Number(v));
+        var len = v.length;
+        if (1 == len)
+            v = v.replace(/(\d)/, "0,0$1");
+        else if (2 == len)
+            v = v.replace(/(\d)/, "0,$1");
+        else if (len > 2) {
+            v = v.replace(/(\d{2})$/, ',$1');
+            if (len > 5) {
+                var x = len - 5,
+                    er = new RegExp('(\\d{' + x + '})(\\d)');
+                v = v.replace(er, '$1.$2');
+            }
+        }
+        return v;
+    }
+    document.getElementById("current_balance").innerHTML = (mascara('"' + snapValue + '"'));
 });
 
 function check() {
-    var codec = atob("NTA=");
-    firebase.database().ref('counter').on('value', function (snapshot) {
+
+    var codec = "10";
+    firebase.database().ref('current_points').on('value', function (snapshot) {
         if (snapshot.val() < codec) {
-            document.getElementById("button-download").disabled = false;
+            //$('.collapse').collapse();
+            //document.getElementById("current_info").innerHTML = "Saque permitido"
         } else {
-            document.getElementById("button-download").disabled = true;
-            $('.collapse').collapse();
+            //$('.collapse').collapse();
+            //document.getElementById("current_info").innerHTML = "Saque não permitido"
         }
     });
 }
 
 function setValue() {
     // Define o valor para 0
-    firebase.database().ref('counter').set("0");
+    firebase.database().ref('current_points').set("0");
     check();
 }
 
